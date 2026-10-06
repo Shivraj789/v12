@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pricing</title>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body class="bg-black text-white">
+
+  <div class="min-h-screen flex items-center justify-center">
+
+    <div class="w-96 rounded-xl bg-white p-8 text-black shadow-lg">
+
+      <h1 class="mb-2 text-3xl font-bold">
+        Premium Plan
+      </h1>
+
+      <p class="mb-6 text-gray-600">
+        Get access to all premium features.
+      </p>
+
+      <div class="mb-6">
+        <span class="text-4xl font-bold">₹500</span>
+        <span class="text-gray-500"> / month</span>
+      </div>
+
+      <button
+        onclick="payNow()"
+        class="w-full rounded-lg bg-[#BC0202] px-6 py-3 font-bold text-white hover:bg-red-800"
+      >
+        Pay ₹500
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    async function payNow() {
+
+      try {
+
+        // Create Razorpay order from your backend
+        const response = await fetch("/create-order", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+
+        const order = await response.json();
+
+        if (!response.ok) {
+          alert("Unable to create order");
+          return;
+        }
+
+        // Razorpay Checkout
+        const options = {
+          key: "<%= razorpayKeyId %>",
+
+          amount: order.amount,
+
+          currency: order.currency,
+
+          name: "Your Website",
+
+          description: "Premium Plan",
+
+          order_id: order.id,
+
+          handler: function (response) {
+
+            console.log("Payment successful!");
+            console.log(response);
+
+            alert("Payment successful!");
+
+          },
+
+          prefill: {
+            name: "",
+            email: "",
+            contact: ""
+          },
+
+          theme: {
+            color: "#BC0202"
+          }
+        };
+
+        const razorpay = new Razorpay(options);
+
+        razorpay.open();
+
+      } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong");
+
+      }
+
+    }
+  </script>
+
+</body>
+</html>
