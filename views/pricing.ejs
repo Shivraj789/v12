@@ -3,111 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Packers & Movers Pricing</title>
 
-  <title>Pricing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      background:
+        radial-gradient(circle at top, rgba(255, 0, 0, 0.12), transparent 35%),
+        #050505;
+    }
+
+    .glow {
+      box-shadow:
+        0 0 30px rgba(255, 0, 0, 0.18),
+        0 0 80px rgba(255, 0, 0, 0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 35px rgba(255, 0, 0, 0.25),
+        0 0 80px rgba(255, 0, 0, 0.08);
+    }
+
+    .card {
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
 
-<body class="bg-black text-white">
+<body class="min-h-screen text-white">
 
-  <div class="min-h-screen flex items-center justify-center">
+  <div class="min-h-screen px-4 py-12">
 
-    <div class="w-96 rounded-xl bg-white p-8 text-black shadow-lg">
+    <!-- Header -->
+    <div class="mx-auto mb-10 max-w-6xl text-center">
 
-      <h1 class="mb-2 text-3xl font-bold">
-        Premium Plan
-      </h1>
-
-      <p class="mb-6 text-gray-600">
-        Get access to all premium features.
+      <p class="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-[#FF0000]">
+        Packers & Movers
       </p>
 
-      <div class="mb-6">
-        <span class="text-4xl font-bold">₹500</span>
-        <span class="text-gray-500"> / month</span>
+      <h1 class="text-4xl font-black md:text-5xl">
+        Choose Your Route
+      </h1>
+
+      <p class="mx-auto mt-4 max-w-2xl text-gray-400">
+        Select your moving route and view the available service price.
+      </p>
+
+    </div>
+
+
+    <!-- Pricing Cards -->
+    <div class="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+
+
+      <!-- Mumbai → Delhi ₹7,000 -->
+      <div class="card glow rounded-2xl border border-red-600/30 bg-zinc-950 p-7">
+
+        <div class="mb-5 flex items-center justify-between">
+
+          <span class="rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-bold uppercase text-[#FF0000]">
+            Route 01
+          </span>
+
+          <span class="text-gray-500">
+            🚚
+          </span>
+
+        </div>
+
+        <h2 class="text-2xl font-black">
+          Mumbai
+        </h2>
+
+        <div class="my-2 text-[#FF0000]">
+          ↓
+        </div>
+
+        <h3 class="text-2xl font-black">
+          Delhi
+        </h3>
+
+        <div class="my-7">
+          <span class="text-5xl font-black">
+            ₹7,000
+          </span>
+        </div>
+
+        <ul class="mb-7 space-y-3 text-sm text-gray-400">
+          <li>✓ Professional packing</li>
+          <li>✓ Loading & transportation</li>
+          <li>✓ Door-to-door service</li>
+          <li>✓ Safe delivery</li>
+        </ul>
+
+        <button
+          disabled
+          class="w-full cursor-not-allowed rounded-xl bg-[#FF0000]/40 px-6 py-4 font-bold text-white opacity-70"
+        >
+          Payment Temporarily Unavailable
+        </button>
+
       </div>
 
-      <button
-        onclick="payNow()"
-        class="w-full rounded-lg bg-[#BC0202] px-6 py-3 font-bold text-white hover:bg-red-800"
-      >
-        Pay ₹500
-      </button>
+
+      <!-- Delhi → Bengaluru ₹10,000 -->
+      <div class="card glow rounded-2xl border border-red-600/30 bg-zinc-950 p-7">
+
+        <div class="mb-5 flex items-center justify-between">
+
+          <span class="rounded-full border border-red-500/30 bg-red-500/10 px-3 py-1 text-xs font-bold uppercase text-[#FF0000]">
+            Route 02
+          </span>
+
+          <span class="text-gray-500">
+            🚚
+          </span>
+
+        </div>
+
+        <h2 class="text-2xl font-black">
+          Delhi
+        </h2>
+
+        <div class="my-2 text-[#FF0000]">
+          ↓
+        </div>
+
+        <h3 class="text-2xl font-black">
+          Bengaluru
+        </h3>
+
+        <div class="my-7">
+          <span class="text-5xl font-black">
+            ₹10,000
+          </span>
+        </div>
+
+        <ul class="mb-7 space-y-3 text-sm text-gray-400">
+          <li>✓ Professional packing</li>
+          <li>✓ Loading & transportation</li>
+          <li>✓ Door-to-door service</li>
+          <li>✓ Safe delivery</li>
+        </ul>
+
+        <button
+          disabled
+          class="w-full cursor-not-allowed rounded-xl bg-[#FF0000]/40 px-6 py-4 font-bold text-white opacity-70"
+        >
+          Payment Temporarily Unavailable
+        </button>
+
+      </div>
+
+
+      <!-- Mumbai → Delhi ₹18,000 -->
+      <div class="card glow rounded-2xl border border-[#FF0000] bg-zinc-950 p-7">
+
+        <div class="mb-5 flex items-center justify-between">
+
+          <span class="rounded-full bg-[#FF0000] px-3 py-1 text-xs font-bold uppercase text-white">
+            Premium
+          </span>
+
+          <span class="text-gray-500">
+            🚛
+          </span>
+
+        </div>
+
+        <h2 class="text-2xl font-black">
+          Mumbai
+        </h2>
+
+        <div class="my-2 text-[#FF0000]">
+          ↓
+        </div>
+
+        <h3 class="text-2xl font-black">
+          Delhi
+        </h3>
+
+        <div class="my-7">
+          <span class="text-5xl font-black">
+            ₹18,000
+          </span>
+        </div>
+
+        <ul class="mb-7 space-y-3 text-sm text-gray-400">
+          <li>✓ Premium packing</li>
+          <li>✓ Dedicated transportation</li>
+          <li>✓ Door-to-door service</li>
+          <li>✓ Priority delivery</li>
+        </ul>
+
+        <button
+          disabled
+          class="w-full cursor-not-allowed rounded-xl bg-[#FF0000]/40 px-6 py-4 font-bold text-white opacity-70"
+        >
+          Payment Temporarily Unavailable
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Maintenance Notice -->
+    <div class="mx-auto mt-10 max-w-2xl">
+
+      <div class="rounded-xl border border-red-500/30 bg-red-500/10 px-5 py-4 text-center">
+
+        <div class="mb-1 flex items-center justify-center gap-2">
+
+          <span class="h-2.5 w-2.5 animate-pulse rounded-full bg-[#FF0000]"></span>
+
+          <span class="font-bold uppercase tracking-wider text-[#FF0000]">
+            Payment Gateway Maintenance
+          </span>
+
+        </div>
+
+        <p class="text-sm text-gray-400">
+          razerpay are on Maintenance
+        </p>
+
+      </div>
 
     </div>
 
   </div>
-
-
-  <script>
-    async function payNow() {
-
-      try {
-
-        // Create Razorpay order from your backend
-        const response = await fetch("/create-order", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          }
-        });
-
-        const order = await response.json();
-
-        if (!response.ok) {
-          alert("Unable to create order");
-          return;
-        }
-
-        // Razorpay Checkout
-        const options = {
-          key: "<%= razorpayKeyId %>",
-
-          amount: order.amount,
-
-          currency: order.currency,
-
-          name: "Your Website",
-
-          description: "Premium Plan",
-
-          order_id: order.id,
-
-          handler: function (response) {
-
-            console.log("Payment successful!");
-            console.log(response);
-
-            alert("Payment successful!");
-
-          },
-
-          prefill: {
-            name: "",
-            email: "",
-            contact: ""
-          },
-
-          theme: {
-            color: "#BC0202"
-          }
-        };
-
-        const razorpay = new Razorpay(options);
-
-        razorpay.open();
-
-      } catch (error) {
-
-        console.error(error);
-
-        alert("Something went wrong");
-
-      }
-
-    }
-  </script>
 
 </body>
 </html>
